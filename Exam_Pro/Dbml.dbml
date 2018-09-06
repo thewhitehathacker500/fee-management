@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Exam_database" Class="DbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-250RMIQ\SQLEXPRESS;Initial Catalog=Exam_database;Integrated Security=True" SettingsObjectName="Exam_Pro.Properties.Settings" SettingsPropertyName="Exam_databaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.exam_table" Member="exam_tables">
+    <Type Name="exam_table">
+      <Column Name="s_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usn" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="s_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sub_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sub_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sem" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

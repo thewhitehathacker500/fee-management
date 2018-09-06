@@ -1,0 +1,75 @@
+﻿<Controls:MetroWindow x:Class="Exam_Pro.Welcome_screen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Exam_Pro"
+        mc:Ignorable="d"
+        Title="" Background="#41B1E1" Height="768" Width="1366" GlowBrush="Black"  ResizeMode="CanResizeWithGrip">
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Width" Value="300" />
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="10" />
+            </Style>
+
+            <Style x:Key="SmallTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Width" Value="147" />
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="10" />
+            </Style>
+        </ResourceDictionary>
+
+    </Controls:MetroWindow.Resources>
+    <StackPanel >
+        <Grid Background="#41B1E1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Controls:Tile Grid.Column="0" x:Name="load_button" Style="{StaticResource LargeTileStyle }"  Title="LOAD" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center" TitleFontSize="36" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI" Margin="20" Click="load_button_Click"   />
+            <Controls:Tile Grid.Column="1" x:Name="fee_collection_button" Style="{StaticResource LargeTileStyle }"  Title="FEE COLLECTION" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center" TitleFontSize="34" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI" Margin="20" Click="fee_collection_Click" FontSize="7"   />
+            <Controls:Tile Grid.Column="2" x:Name="print_button" Style="{StaticResource LargeTileStyle }"  Title="PRINT" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center" TitleFontSize="36" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI" Margin="20" Click="print_Click" />
+            <Controls:Tile Grid.Column="3" x:Name="settings_button" Style="{StaticResource LargeTileStyle }"  Title="SETTINGS" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center" TitleFontSize="36" HorizontalAlignment="Center" FontFamily="Microsoft YaHei UI" Margin="20" Click="settings_Click"   />
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="2" Margin="30 10 30 0">
+            <Grid x:Name="preview_grid" Height="500"  Background="#fff"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="data_grid" Background="#eee" Height="400" Width="600" Visibility="Hidden" >
+
+                </DataGrid>
+                <TextBlock FontSize="50" HorizontalAlignment="Center" TextWrapping="Wrap" FontFamily="Microsoft YaHei UI">Preview</TextBlock>
+                <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="50" TextWrapping="Wrap" FontFamily="Microsoft YaHei UI">Recent Files</TextBlock>
+            </Grid>
+        </Border>
+        <RadioButton Name="ac"  Content="RadioButton"/>
+        <!--<Grid>
+            <TextBlock x:Name="error_msg" Text="" Margin="302,684,-640,19" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+        </Grid>
+        <WrapPanel>
+            <TextBlock Text="Server Status" Height="22" Margin="954,669,-976,46"  FontWeight="Bold"/>
+        </WrapPanel>-->
+    </StackPanel>
+</Controls:MetroWindow>

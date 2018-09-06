@@ -1,0 +1,124 @@
+﻿<Controls:MetroWindow x:Class="Exam_Pro.Fee_Collection"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Exam_Pro"
+        mc:Ignorable="d"
+        Title="Window1" Height="800" Width="600" >
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Width" Value="300" />
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="10" />
+            </Style>
+
+            <Style x:Key="SmallTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Width" Value="147" />
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="10" />
+            </Style>
+            <Style x:Key="WideTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Width" Value="250" />
+                <Setter Property="Height" Value="50" />
+                <Setter Property="TitleFontSize" Value="18" />
+            </Style>
+        </ResourceDictionary>
+
+    </Controls:MetroWindow.Resources>
+    <StackPanel>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </StackPanel.Background>
+        <TextBlock Text="FEE COLLECTION" HorizontalAlignment="Center" Margin="20" FontSize="36" FontWeight="Bold" FontFamily="Lithos Pro Regular" FontStyle="Italic"/>
+      
+        <StackPanel Orientation="Horizontal">
+            <Controls:Tile Style="{StaticResource WideTileStyle}" Margin="70 0 10 0" Background="White" Content="SELECT FOLDER WITH EXCELS" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Name="dummy" Click="dummy_Click"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Enter Arrear Fee" HorizontalAlignment="Right" FontSize="18" Margin="0 0 10 0" FontWeight="Black" />
+                <TextBlock Text="Per Subject" HorizontalAlignment="Right" FontSize="18" Margin="0 0 10 0" FontWeight="Black" />
+            </StackPanel>
+           
+            <TextBox Name="arrear_textbox" Width="100"   TextAlignment="Center" FontSize="18" />
+        </StackPanel>
+        <TextBlock Text="Please Select the Branch" FontSize="18" Margin="90 20 90 0" Typography.Capitals="AllSmallCaps" FontWeight="Black"/>
+        <ComboBox x:Name="branch_cb" Margin="90 10 90 0" SelectionChanged="branch_cb_SelectionChanged" >
+            <ComboBoxItem>Mechanical </ComboBoxItem>
+            <ComboBoxItem>Electronics And Communication</ComboBoxItem>
+            <ComboBoxItem>Civil</ComboBoxItem>
+            <ComboBoxItem>Computer Science</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Text="Please Select the Semester" FontSize="18" Margin="90 20 90 10" Typography.Capitals="AllSmallCaps" FontWeight="Black"/>
+        <ComboBox x:Name="sem_cb" Visibility="Visible" Margin="90 0 90 40" SelectionChanged="sem_cb_SelectionChanged">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>7</ComboBoxItem>
+            <ComboBoxItem>8</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Text="Please Select the Student USN" FontSize="18" Margin="90 0 90 10" Typography.Capitals="AllSmallCaps" FontWeight="Black"/>  
+        <ComboBox x:Name="student_cb" Visibility="Visible" Margin="90 0"  SelectionChanged="student_cb_SelectionChanged">
+           
+        </ComboBox>
+        <TextBlock Text="Please Select the number of arrears" FontSize="18" Margin="90 20 90 10" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+
+        <Grid Margin="100 0" Name="radio_grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton Name="one" Grid.Row="0" Grid.Column="0" />
+            <TextBlock Name="text1" Text="1"  Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps" Height="24" VerticalAlignment="Top"/>
+            <RadioButton Name="two" Grid.Row="0" Grid.Column="2" />
+            <TextBlock Text="2" Name="text2" Grid.Row="0" Grid.Column="3" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps" Height="24" VerticalAlignment="Bottom"/>
+            <RadioButton Name="three" Grid.Row="0" Grid.Column="4" />
+            <TextBlock Text="3" Name="text3" Grid.Row="0" Grid.Column="5" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="four" Grid.Row="0" Grid.Column="6" />
+            <TextBlock Text="4" Name="text4" Grid.Row="0" Grid.Column="7" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="five" Grid.Row="1" Grid.Column="0" />
+            <TextBlock Text="5" Name="text5" Grid.Row="1" Grid.Column="1" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="six" Grid.Row="1" Grid.Column="2" />
+            <TextBlock Text="6" Name="text6" Grid.Row="1" Grid.Column="3" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="seven" Grid.Row="1" Grid.Column="4" />
+            <TextBlock Text="7" Name="text7" Grid.Row="1" Grid.Column="5" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="eight" Grid.Row="1" Grid.Column="6" />
+            <TextBlock Text="8" Name="text8" Grid.Row="1" Grid.Column="7" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="nine" Grid.Row="2" Grid.Column="0" />
+            <TextBlock Text="9" Name="text9"  Grid.Row="2" Grid.Column="1" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="ten"  Grid.Row="2" Grid.Column="2" />
+            <TextBlock Text="10" Name="text10" Grid.Row="2" Grid.Column="3" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="eleven"   Grid.Row="2" Grid.Column="4" />
+            <TextBlock Text="11" Name="text11" Grid.Row="2" Grid.Column="5" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+            <RadioButton Name="twelve" Grid.Row="2" Grid.Column="6" />
+            <TextBlock Text="12" Name="text12" Grid.Row="2" Grid.Column="7" FontSize="18" FontWeight="Black" Typography.Capitals="AllSmallCaps"/>
+        </Grid>
+
+        <Controls:Tile Style="{StaticResource WideTileStyle}" Margin="20" Background="Azure" Content="GO" Foreground="Black" FontSize="28" FontWeight="Bold" Click="Tile_Click"/>
+        <TextBox Name="info_box" Margin="90 20" IsReadOnly="True" Visibility="Visible" FontSize="20" FontWeight="Bold" />
+    </StackPanel>
+</Controls:MetroWindow>
